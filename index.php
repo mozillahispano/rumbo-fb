@@ -1,5 +1,5 @@
 <?php
-require_once('facebook.php');
+require_once('util/facebook.php');
 
 
 // Create our Application instance (replace this with your appId and secret).
@@ -73,7 +73,7 @@ $naitik = $facebook->api('/naitik');
         <?php 
           }
          
-    //  print_r($_SESSION);
+     //print_r($_SESSION);
    
    
    ?>

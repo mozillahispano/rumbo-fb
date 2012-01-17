@@ -1,8 +1,8 @@
  
 <?php
 
-require_once ('conexion.php');
-require_once('facebook.php');
+require_once ('util/conexion.php');
+require_once('util/facebook.php');
 
 
 

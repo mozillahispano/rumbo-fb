@@ -1,7 +1,7 @@
  <?php
 
-require_once ('cone/funciones.php');
-require_once('facebook.php');
+require_once ('util/funciones.php');
+require_once('util/facebook.php');
 
 
 

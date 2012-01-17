@@ -1,5 +1,5 @@
 <?php
-require_once ('cone/funciones.php');
+require_once ('util/funciones.php');
 $tra= new Trabajo();
 $tra->cargar_img();
 
