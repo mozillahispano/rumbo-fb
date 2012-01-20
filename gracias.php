@@ -1,21 +1,29 @@
- 
 <?php
+/* Database Configuration */
+require_once (dirname(__FILE__).'/config/config.php');
 
-require_once ('util/conexion.php');
-require_once('util/facebook.php');
+/* Facebook API */
+require_once(dirname(__FILE__).'/config/facebook.php');
 
+/* Functions */
+require_once (dirname(__FILE__).'/util/funciones.php');
 
+/* Define your Facebook appID and secret key */ 
+$facebook = new Facebook (
+    array(
+    'appId'  => '153053701464197',
+    'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
+    )
+);
 
-$facebook = new Facebook(array(
-  'appId'  => '153053701464197',
-  'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
-));
+/**
+* Get the UID of the connected user, or 0
+* if the Facebook user is not connected.
+*
+* @return string the UID if available.
+*/
 
-// Get User ID
 $user = $facebook->getUser();
-
-
-?> 
 
 
 
