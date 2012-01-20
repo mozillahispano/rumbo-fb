@@ -1,6 +1,6 @@
 <?php
-require_once ("conexion.php");
-
+/* Database Configuration */
+require_once "config/config.php";
 
 class Trabajo{
     
@@ -14,7 +14,7 @@ class Trabajo{
          echo '<script type="text/javascript"> alert("SE HA APROBADO LA IMAGEN"); window.location="galeria.php";</script>';
   }
     
-    public function mostrar_transito(){
+public function mostrar_transito(){
         
        $sql="select * from imagenes where situacion='transito'";
         $rep=mysql_query($sql,Conectar::con());
@@ -27,7 +27,7 @@ class Trabajo{
         
        }
     
-    public function mostrar_img(){
+public function mostrar_img(){
         
         $sql="select * from imagenes where situacion='aprobado'";
         $rep=mysql_query($sql,Conectar::con());
@@ -41,7 +41,7 @@ class Trabajo{
     
     
     
-    public function cargar_img(){
+public function cargar_img(){
         
         $uid=$_POST["uid"];
         $des=$_POST["descripcion"];
