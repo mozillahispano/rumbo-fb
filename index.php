@@ -1,23 +1,28 @@
-<?php
-/* Database Configuration. Die if config-sample.php is not renamed */
+<?
+/*
+* 2012 - Mozilla Hispano
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Creative Commons BY-SA 3.0 license.
+* It is also available through the world-wide-web at this URL:
+* http://creativecommons.org/licenses/by-sa/3.0/
+*
+*  @author Mozilla Hispano <tecnico@mozilla-hispano.org>
+*  @version Release: $Revision: 149fb4220d78 $
+*  @license http://creativecommons.org/licenses/by-sa/3.0/ Creative Commons BY-SA 3.0
+*/
 
-if (!file_exists(dirname(__FILE__).'config/config.php'))
+/**
+* Load Database and Facebook Configuration. 
+* Die if config-sample.inc.php is not renamed 
+*/
+if (!file_exists(dirname(__FILE__).'config/config.inc.php'))
 {
-    echo "Config.php does not exist. Configure and rename /config/config-sample.php"; 
+    die('Config.inc.php does not exist. Configure and rename \'config\'config-sample.inc.php'); 
 else 
-    require_once (dirname(__FILE__).'config/config.php');
+    require_once (dirname(__FILE__).'config/config.inc.php');
 }
-
-/* Facebook API */
-require_once(dirname(__FILE__).'config/facebook.php');
-
-/* Define your Facebook appID and secret key */ 
-$facebook = new Facebook (
-    array(
-    'appId'  => '153053701464197',
-    'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
-    )
-);
 
 /**
 * Get the UID of the connected user, or 0
@@ -25,7 +30,6 @@ $facebook = new Facebook (
 *
 * @return string the UID if available.
 */
-
 $user = $facebook->getUser();
 ?> 
 
