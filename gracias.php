@@ -1,6 +1,6 @@
-<?php
-/* Database Configuration */
-require_once (dirname(__FILE__).'/config/config.php');
+<?php 
+ /* Database Configuration */
+require_once (dirname(__FILE__).'/config/config-sample.php');
 
 /* Facebook API */
 require_once(dirname(__FILE__).'/config/facebook.php');
@@ -8,8 +8,8 @@ require_once(dirname(__FILE__).'/config/facebook.php');
 /* Functions */
 require_once (dirname(__FILE__).'/util/funciones.php');
 
-/* Define your Facebook appID and secret key */ 
-$facebook = new Facebook (
+/* <?php Define your Facebook appID and secret key */ 
+  $facebook = new Facebook (
     array(
     'appId'  => '153053701464197',
     'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
@@ -23,20 +23,20 @@ $facebook = new Facebook (
 * @return string the UID if available.
 */
 
-$user = $facebook->getUser();
+$user = $facebook->getUser(); 
 
-
-
-
+?>
 
 <!DOCTYPE HTML>
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>..::Rumbo y los 100.000..::</title>
+        <title>..::Rumbo | Gracias ..::</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css"/>
+        <link href='http://fonts.googleapis.com/css?family=Lemon' rel="stylesheet" />
     </head>
     <body>
+    <section>
         <?php
 
 $urlAuth  =  "http://www.facebook.com/dialog/oauth?client_id=153053701464197&redirect_uri=http://apps.facebook.com/demorumbo/&scope=read_stream,user_status,publish_stream,email";
@@ -55,35 +55,38 @@ if ( empty ( $data['user_id'] ) )
 { 
 ?>
       
-        <div id="contenedor-cabecera">
+        <header>
 		<?php include 'cabecera.php'; ?>
-	</div>
-	<div id="main" class="envoltura">
-		   <aside>
-			 <h3>IMAGEN DE RUMBO</h3> 
+	</header>
+	<section id="carga">
+		   <article>
+			  <img src="images/gracias.png" /> 
                     
-		</aside>
-		<article>
-                    <div id="contenido">
+		</article>
+		<article class="ancho">
+                    
 				
-                                 <p><strong>¡Gracias por participar!</strong></p>
+                                 <h3><strong>¡Gracias por participar!</strong></h3>
                                 <p>Estamos revisando tus diseños. En breve podrás verlos publicados en una galería especial que hemos preparado. Los diseños más votados por vosotros serán los que podrán optar a ganar el concurso. ¡Suerte!</p>
-                              
+                
+                                <ul>
+                                  <!--  <li><a href="galeria.php" class="boton">Ir a Galeria</a></li> -->
+                                     <li><a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Ir a Galeria</a></li>
+                     
+                                </ul>         
                                 
-                        </div>
-                     <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Ir a Galeria</a>
-                     <a href="javascript:void(0);" onClick="history.back()" class="boton">Volver Atras</a>
+                        
+                  
+                    
                   
 		</article>
-	</div>
-	<div id="contenedor-footer">
-		<?php include 'pie.php'; ?>
-	</div>
+	</section>
+	
 
         
         
              
-        
+    </section>
     </body>
 <?php
 } 
@@ -92,4 +95,5 @@ if ( empty ( $data['user_id'] ) )
     
     
 </html>
+
 

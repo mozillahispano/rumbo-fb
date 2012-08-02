@@ -1,6 +1,6 @@
 <?php
 /* Database Configuration */
-require_once "config/config.php";
+require_once "config/config-sample.php";
 
 class Trabajo{
     
@@ -9,14 +9,14 @@ class Trabajo{
     public function aprobar_imagenes(){
         
         $id_imagen=$_POST["id"];
-        $sql="update imagenes set situacion='aprobado' where id_imagenes=$id_imagen";
+        $sql="update imagenes set estado='aprobado' where id_imagenes=$id_imagen";
         mysql_query($sql,Conectar::con());
          echo '<script type="text/javascript"> alert("SE HA APROBADO LA IMAGEN"); window.location="galeria.php";</script>';
   }
     
 public function mostrar_transito(){
         
-       $sql="select * from imagenes where situacion='transito'";
+       $sql="select * from imagenes where estado='transito'";
         $rep=mysql_query($sql,Conectar::con());
         while($res=mysql_fetch_assoc($rep)){
             
@@ -29,7 +29,7 @@ public function mostrar_transito(){
     
 public function mostrar_img(){
         
-        $sql="select * from imagenes where situacion='aprobado'";
+        $sql="select * from imagenes where estado='aprobado'";
         $rep=mysql_query($sql,Conectar::con());
         while($res=mysql_fetch_assoc($rep)){
             
@@ -42,16 +42,17 @@ public function mostrar_img(){
     
     
 public function cargar_img(){
-        
+  // print_r($_POST);
+   
         $uid=$_POST["uid"];
-        $des=$_POST["descripcion"];
+        
         $img=$_FILES["image_file"]["name"];
         $tempimg=$_FILES["image_file"]["tmp_name"];
         $tamanoimg=$_FILES["image_file"]["size"];
         $tipoimg=$_FILES["image_file"]["type"];
-      // echo "$uid"."$des"."$img"."$tempimg"."$tamañoimg"."$tipoimg";
+     //  echo "$uid"."$img"."$tempimg"."$tamanoimg"."$tipoimg";
         
-        //Validando el tamaño del Archivo
+       //Validando el tamaño del Archivo
         $porte=$tamanoimg/1024;//tamaño en KB
         
         if($porte > 1024){
@@ -65,7 +66,7 @@ public function cargar_img(){
     //Ahora validamos la extensión o el tipo de archivo
 if ($tipoimg=="image/png" or $tipoimg=="image/jpeg")
 {
-//**************************************************************************
+
 //Ahora podemos subir la imagen al servidor
 switch ($tipoimg)
 {
@@ -76,19 +77,18 @@ switch ($tipoimg)
 		$ext=".jpg";
 	break;
 	
-}/*	 $num=self::obtiene_numero_foto($_POST["uid"]);
-		$foto=$_POST["uid"]."_".$num.".jpg"; */
-//$nombre_foto=$_POST["nom"].$ext;
-$nombre_foto=$_POST["uid"];
+}
+
+$nombre_foto=$uid;
 $nombre_foto=str_replace(" ","_",$nombre_foto);
 $nombre_foto=$nombre_foto.$ext;
-copy($tempimg,"img/$nombre_foto");
-//**************************************************************************
+copy($tempimg,"portadas/$nombre_foto");
+
 //Ahora guardamos el archivo en una tabla de la base de datos
 $sql="insert into imagenes "
 			." values "
-			."(null,'".$_POST["uid"]."','".$_POST["descripcion"]."','$nombre_foto','transito');";
-		//echo $sql;	
+			."(null,'$uid','$nombre_foto','transito');";
+			
 		mysql_query($sql,Conectar::con());
                 header('location: gracias.php');
 }else
@@ -126,3 +126,4 @@ $sql="insert into imagenes "
 }
 
 ?>
+

@@ -1,11 +1,10 @@
-<header class="envoltura">
-    <h3 id="title">RUMBO Y LOS 100.000</h3>
+<a href="index.php" id="title"><span class="azul">Rumbo</span> <span class="gris">y los</span> <span class="naranja">200.000</span></a>
   
 			<nav>
-				<ul>
-					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/pages/Rumbo-Demo-Community/156447127795317';">Ir al Fans Page</a></li>
-					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/profile.php?id=< ?php echo $user; ?>';">Regresar a mi Perfil</a></li> 
-					
-				</ul>
+				<ol>
+					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/pages/Rumbo-Demo-Community/156447127795317';" class="boton">Ir al Fans Page</a></li>
+					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/profile.php?id=< ?php echo $user; ?>';" class="boton">Mi Perfil</a></li> 
+                                        <li><a href="javascript:void(0);" onClick="history.back()" class="boton">Volver Atras</a>
+				</ol>
 			</nav>
-</header>
+ 

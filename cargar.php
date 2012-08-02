@@ -1,6 +1,6 @@
 <?php
 /* Database Configuration */
-require_once (dirname(__FILE__).'/config/config.php');
+require_once (dirname(__FILE__).'/config/config-sample.php');
 
 /* Facebook API */
 require_once(dirname(__FILE__).'/config/facebook.php');
@@ -9,28 +9,17 @@ require_once(dirname(__FILE__).'/config/facebook.php');
 require_once (dirname(__FILE__).'/util/funciones.php');
 
 /* Define your Facebook appID and secret key */ 
-$facebook = new Facebook (
+  $facebook = new Facebook (
     array(
     'appId'  => '153053701464197',
     'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
     )
 );
 
-/**
-* Get the UID of the connected user, or 0
-* if the Facebook user is not connected.
-*
-* @return string the UID if available.
-*/
 
 $user = $facebook->getUser();
 
-if(isset($_GET["grabar"]) and $_GET["grabar"]=="si"){
-    
-    $tra= new Trabajo();
-    $tra->cargar_img();
-    
-}
+
 
 ?> 
 
@@ -38,11 +27,13 @@ if(isset($_GET["grabar"]) and $_GET["grabar"]=="si"){
 <html lang="es">
     <head>
         <meta charset="utf-8"/>
-        <title>..::Rumbo y los 100.000..::</title>
-        <link rel="stylesheet" href="css/estilos.css" type="text/css"/>
+        <title>..:: Rumbo | Participa ::..</title>
+        <link rel="stylesheet" href="css/estilos.css"/>
+       
         <script type="text/javascript" src="js/cargar.js"></script>
     </head>
     <body>
+        <section>    
         <?php
 
 $urlAuth  =  "http://www.facebook.com/dialog/oauth?client_id=153053701464197&redirect_uri=http://apps.facebook.com/demorumbo/&scope=read_stream,user_status,publish_stream,email";
@@ -61,40 +52,72 @@ if ( empty ( $data['user_id'] ) )
 { 
 ?>
       
-        <div id="contenedor-cabecera">
+        <header>
 		<?php include 'cabecera.php'; ?>
-	</div>
-	<div  class="envoltura">
-		   <aside>
-                       <img src="img/mh-banner-v.png" width="250px" height="400px" />
-			 <!-- <h3>IMAGEN DE RUMBO</h3> -->
-		</aside>
+	</header>
+	<section id="carga">
+		   <article class="borde ancho">
+                       
+                       
+                       <h3>Diseña una Portada</h3>
+                       <p>Queremos que seas creativo y utilices tu
+                       imaginacion para diseñar una imagen 
+                       para que sean nuestra foto de portada</p>
+                       
+                       <hr>
+                       <h3>Tem&aacute;tica</h3>
+                       <p>Puedes elegir el producto de Mozilla preferido
+                       (Firefox, Thunderbird) algunos de los personajes de
+                       Firefox o !El&iacute;geme a mi¡ tienes libertad creativa, solo 
+                       tiene que ser un diseño que este relacionado con nosotros de 
+                       alguna manera</p>
+                       
+		</article>
                        
 		<article>
-                    <div id="contenido">
+                    
 				
-				<p>Diseña una imagen para que usemos en la portada de Facebook cuando lleguemos a 100.000 fans. Recuerda que tiene que ser un diseño que represente a Mozilla..</p>
-                                <p>Medidas: xxx * xxx</p>
-                                <p>Formato: xxx</p>
-                                <p>Tamaño máximo: xxx</p>
+                       <h3>Selecciona  tu Portada</h3>
+                        
+                        <div class="columnas">  
+                        
+                        <img src="images/carga.png" width="200px" height="200px" /><br></br>
+                        <p>Formato: JPG  o PNG</p>
+                       <p>Medidas: 100px * 100px</p>
+                        <p>Tamaño Maximo:1000 kb</p>
+                        </div>
                          
-                                <hr>      
-                                                   
+                       <ul>
+                           <li><a href="#bases" id="login_pop" class="boton">Seleccionar...</a></li>
+                           <li><a href="galeria.php" class="boton">Galeria</a></li>
+                           <li> <a href="aprobacion.php" class="boton">Aprobar</a> </li>
+                       </ul>
+                             
+                               
+              
+        <!--  <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Ir a Galeria</a>
+            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> -->
+                        <a href="#x" class="overlay" id="login_form"></a>
+
+                        <div class="popup">
+
+                                      
                                 
                                 
-                <form id="upload_form" enctype="multipart/form-data" method="post" action="procesa_cargar.php">
+                <form id="upload_form" enctype="multipart/form-data" method="post" action="procesa_carga.php">
                     <div>
-                        <div><label for="image_file">Seleccione La Imagen</label></div>
-                        <div><input type="file" name="image_file" id="image_file" onchange="seleccionarArchivo();" /></div>
-                        <!--   <input type="text" name="uid"/> -->
-                        <textarea name="descripcion" placeholder="Define tu Creacion"></textarea>
+                        <label for="image_file">Seleccione Su Portada</label>
+                        <input type="file" name="image_file" id="image_file"  onchange="seleccionarArchivo();" /> 
+                        
+                    <!--    <input type="text" name="uid" /> -->
+                        
                      
                         <input type="hidden" name="grabar" value="si">
-                        <input type="hidden" name="uid" value="<?php  echo $user;?> ">
+                      <input type="hidden" name="uid" value="<?php  echo $user;?>  "> 
                     </div>
                     <div>
 
-                        <input type="submit" value="Cargar"  />
+                        <input type="submit" value="Enviar Portada"  class="boton" />
                     </div>
                     <div id="fileinfo">
                        <div id="filename"></div>
@@ -118,26 +141,53 @@ if ( empty ( $data['user_id'] ) )
                   </form>  
                 <img id="vista_previa" />
                 
+                <a class="close" href="#close"></a>
+
                 
-                    </div>
-                    
-                    <div class="envoltura">      
-                    <a href="gracias.php" class="boton ">Bases Legales</a> 
-                    </div>
+                        </div>
+               
+                 <a href="#x" class="overlay" id="bases"></a>
+
+                 <div class="popup">
+                     
+                     <h2>Bases Legales</h2>
+                     <hr>
+                     <p>Lorem ipsum dolor sit amet, vix ut augue sanctus consulatu, sed an odio mundi corrumpit.
+                         Vel id choro corrumpit. Qui debet iisque ad. Et eum noster verear scribentur,
+                         te doming suavitate mea. Per tritani perfecto ea, ex ipsum inani sit.
+                         Impetus eruditi eu sit, per ut everti epicuri. Ei quo tota paulo.</p>
+                     <br>
+                     <p>Ad mel solet feugiat, ornatus suscipit perpetua ne pri, eam at platonem oportere salutandi.
+                         Dolore alterum reformidans an mei. Vel ea congue noluisse scripserit, nibh dolores et ius,
+                         ad quas dicta vel. Ea qui ridens maiorum.
+                         Mei affert democritum adversarium ea, sint case voluptua eu nam. Tibique sadipscing est et.</p>
+                     <br>
+                     <p>Tempor nostrum disputationi in has, ferri verterem mea ei.
+                         Eripuit adolescens reprehendunt at sed.
+                         Utroque torquatos interesset nam no, pro cu graece volumus deleniti.
+                         Pro agam aeque causae eu, solum exerci consequat cu sea. Ea menandri assentior duo.</p>
+                     <br>
+                     <a href="#login_form" class="boton">Aceptar</a>
+                   <a class="close" href="#close"></a>  
+                 </div>
+                        
+                        
+                        
+                        
+                        
+                   
                     
 		</article>
 	</div>
-	<div id="contenedor-footer">
-		<?php include 'pie.php'; ?>
-	</div>
-
+	
         
         
+        </section>
              
-        
+        </section>
     </body>
 <?php
-} 
+ } 
 
 ?>
     
