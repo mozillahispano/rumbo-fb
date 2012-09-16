@@ -332,6 +332,7 @@ h3{
 #carga article h3{
     font-size: 22px;
     margin: 0px 0px 30px 0px;
+    font-weight: normal;
 }
 
 #carga .ancho{
@@ -379,8 +380,6 @@ section ul li{
     padding:3px;
     text-align: center;  
 }
-
-
 
 article .columnas{
     

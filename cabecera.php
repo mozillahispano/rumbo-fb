@@ -2,9 +2,9 @@
   
 			<nav>
 				<ol>
-					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/pages/Rumbo-Demo-Community/156447127795317';" class="boton">Ir al Fans Page</a></li>
+					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/pages/Rumbo-Demo-Community/156447127795317';" class="boton">Ir a la Fan Page</a></li>
 					<li><a href="javascript:void(0);" onClick="top.location='http://www.facebook.com/profile.php?id=< ?php echo $user; ?>';" class="boton">Mi Perfil</a></li> 
-                                        <li><a href="javascript:void(0);" onClick="history.back()" class="boton">Volver Atras</a>
+                                        <li><a href="javascript:void(0);" onClick="history.back()" class="boton">Volver</a>
 				</ol>
 			</nav>
  

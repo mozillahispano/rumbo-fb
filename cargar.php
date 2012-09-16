@@ -61,16 +61,16 @@ if ( empty ( $data['user_id'] ) )
                        
                        <h3>Diseña una Portada</h3>
                        <p>Queremos que seas creativo y utilices tu
-                       imaginacion para diseñar una imagen 
-                       para que sean nuestra foto de portada</p>
+                       imaginaci&oacute;n para diseñar nuestra pr&oacute;xima
+                       imagen de portada.</p>
                        
                        <hr>
                        <h3>Tem&aacute;tica</h3>
                        <p>Puedes elegir el producto de Mozilla preferido
-                       (Firefox, Thunderbird) algunos de los personajes de
-                       Firefox o !El&iacute;geme a mi¡ tienes libertad creativa, solo 
+                       (Firefox, Thunderbird, etc.) algunos de los personajes de
+                       Firefox o, ¡El&iacute;geme a mi!. Tienes libertad creativa, s&oacute;lo 
                        tiene que ser un diseño que este relacionado con nosotros de 
-                       alguna manera</p>
+                       alguna manera.</p>
                        
 		</article>
                        
@@ -84,7 +84,7 @@ if ( empty ( $data['user_id'] ) )
                         <img src="images/carga.png" width="200px" height="200px" /><br></br>
                         <p>Formato: JPG  o PNG</p>
                        <p>Medidas: 100px * 100px</p>
-                        <p>Tamaño Maximo:1000 kb</p>
+                        <p>Tamaño M&aacute;ximo: 1000 kb</p>
                         </div>
                          
                        <ul>
@@ -106,7 +106,7 @@ if ( empty ( $data['user_id'] ) )
                                 
                 <form id="upload_form" enctype="multipart/form-data" method="post" action="procesa_carga.php">
                     <div>
-                        <label for="image_file">Seleccione Su Portada</label>
+                        <label for="image_file">Selecciona tu portada</label>
                         <input type="file" name="image_file" id="image_file"  onchange="seleccionarArchivo();" /> 
                         
                     <!--    <input type="text" name="uid" /> -->
@@ -126,10 +126,10 @@ if ( empty ( $data['user_id'] ) )
                         <div id="filedim"></div>
                     </div>
 
-                    <div id="error">Hay que seleccionar los archivos válidos, solo imagen!</div>
-                    <div id="error2">Se produjo un error al cargar el archivo</div>
-                    <div id="abort">La subida ha sido cancelada por el usuario o el navegador ha terminado la conexión</div>
-                    <div id="warnsize">Su archivo es muy grande. No lo podemos aceptar. Por favor, seleccione un archivo más pequeño</div>
+                    <div id="error">Hay que seleccionar los archivos válidos, ¡s&oacute;lo una imagen!</div>
+                    <div id="error2">Se produjo un error al cargar el archivo.</div>
+                    <div id="abort">La subida ha sido cancelada por el usuario o el navegador ha terminado la conexi&oacute;n.</div>
+                    <div id="warnsize">Su archivo es muy grande. Por favor, selecciona un archivo m&aacute;s pequeño.</div>
                     
                    
                         <div>

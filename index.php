@@ -44,8 +44,8 @@ $user = $facebook->getUser();
     <section id="contenido">    
         <article class="borde">
             <h3>¡Hola Amigos!</h3>
-             <p>¡Hola! Soy Rumbo y me gustaría que hicieses un viaje conmigo. 
-           <p> Quiero celebrar con todos ustedes los 200.000 fans de nuestra pagina en Facebook.</p>  
+             <p>¡Hola! Soy Rumbo y me gustaría que hicieses un viaje conmigo. <p>
+             <p>Quiero celebrar con todos ustedes los 200.000 fans de nuestra p&aacute;gina en Facebook.</p>  
        </article>
     
     
@@ -56,8 +56,8 @@ $user = $facebook->getUser();
         
     	<article class="borde">
             <h3>Participar tiene premios</h3>
-             <p>Animate y participa en nuestro concurso </p>
-             <p> Envia tus diseños y, además de que los usen miles de personas, podrás conseguir una camiseta oficial de Firefox</p>
+             <p>An&iacute;mate y participa en nuestro concurso.</p>
+             <p>Env&iacute;a tus diseños y, además de que los usen miles de personas, podrás conseguir una camiseta oficial de Firefox.</p>
        </article>
     </section>    
         <ul>

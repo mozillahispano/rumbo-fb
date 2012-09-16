@@ -67,7 +67,7 @@ if ( empty ( $data['user_id'] ) )
                     
 				
                                  <h3><strong>¡Gracias por participar!</strong></h3>
-                                <p>Estamos revisando tus diseños. En breve podrás verlos publicados en una galería especial que hemos preparado. Los diseños más votados por vosotros serán los que podrán optar a ganar el concurso. ¡Suerte!</p>
+                                <p>Estamos revisando tus diseños. En breve podr&aacute;s verlos publicados en una galer&iacute;a especial que hemos preparado.</p><p>Los diseños m&aacute;s votados ser&aacute;n los que podr&aacute;n optar a ganar el concurso. ¡Suerte!</p>
                 
                                 <ul>
                                   <!--  <li><a href="galeria.php" class="boton">Ir a Galeria</a></li> -->
