@@ -47,8 +47,7 @@ nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 
 
 body{
-   background:  url('../images/bg-sky.png') repeat-x;
-   
+   background:  url("../images/bg-sky.png") repeat-x scroll 0 0 #EBEEEF;
    font-family: OpenSans-Regular;
    font-size: 16px;
   }
@@ -310,6 +309,7 @@ Contenido
 h3{
     font-family: OpenSans-ExtraBoldItalic;
     color:#317bbd;
+    font-weight: normal;
 }
 
 #carga{
