@@ -9,7 +9,7 @@ require_once(dirname(__FILE__).'/config/facebook.php');
 require_once (dirname(__FILE__).'/util/funciones.php');
 
 /* Define your Facebook appID and secret key */ 
-  $facebook = new Facebook (
+ $facebook = new Facebook (
     array(
     'appId'  => '153053701464197',
     'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
@@ -29,7 +29,9 @@ $user = $facebook->getUser();
         <meta charset="utf-8"/>
         <title>..:: Rumbo | Participa ::..</title>
         <link rel="stylesheet" href="css/estilos.css"/>
-       
+        <link rel="stylesheet" href="css/reveal.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="js/jquery.reveal.js"></script>
         <script type="text/javascript" src="js/cargar.js"></script>
     </head>
     <body>
@@ -56,21 +58,21 @@ if ( empty ( $data['user_id'] ) )
 		<?php include 'cabecera.php'; ?>
 	</header>
 	<section id="carga">
-		   <article class="borde ancho">
+		   <article class="borde">
                        
                        
                        <h3>Diseña una Portada</h3>
                        <p>Queremos que seas creativo y utilices tu
-                       imaginaci&oacute;n para diseñar nuestra pr&oacute;xima
-                       imagen de portada.</p>
+                       imaginación para diseñar una imagen 
+                       para que sean nuestra foto de portada</p>
                        
                        <hr>
                        <h3>Tem&aacute;tica</h3>
                        <p>Puedes elegir el producto de Mozilla preferido
-                       (Firefox, Thunderbird, etc.) algunos de los personajes de
-                       Firefox o, ¡El&iacute;geme a mi!. Tienes libertad creativa, s&oacute;lo 
+                       (Firefox, Thunderbird), algunos de los personajes de
+                       Firefox o ¡El&iacute;geme a mi! tienes libertad creativa, solo 
                        tiene que ser un diseño que este relacionado con nosotros de 
-                       alguna manera.</p>
+                       alguna manera</p>
                        
 		</article>
                        
@@ -81,39 +83,23 @@ if ( empty ( $data['user_id'] ) )
                         
                         <div class="columnas">  
                         
-                        <img src="images/carga.png" width="200px" height="200px" /><br></br>
-                        <p>Formato: JPG  o PNG</p>
-                       <p>Medidas: 100px * 100px</p>
-                        <p>Tamaño M&aacute;ximo: 1000 kb</p>
+                        <img src="images/carga.png" width="150px" height="150px" /><br></br>
+                        <p><b>Formato:</b> JPG  o PNG</p>
+                       <p><b>Medidas:</b> 851px * 315px</p>
+                        <p><b>Tamaño Máximo:</b>1000 kb</p>
                         </div>
-                         
-                       <ul>
-                           <li><a href="#bases" id="login_pop" class="boton">Seleccionar...</a></li>
-                           <li><a href="galeria.php" class="boton">Galeria</a></li>
-                           <li> <a href="aprobacion.php" class="boton">Aprobar</a> </li>
-                       </ul>
-                             
-                               
-              
-        <!--  <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Ir a Galeria</a>
-            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> -->
+                 
                         <a href="#x" class="overlay" id="login_form"></a>
 
                         <div class="popup">
-
-                                      
-                                
-                                
+                     
                 <form id="upload_form" enctype="multipart/form-data" method="post" action="procesa_carga.php">
                     <div>
-                        <label for="image_file">Selecciona tu portada</label>
-                        <input type="file" name="image_file" id="image_file"  onchange="seleccionarArchivo();" /> 
-                        
-                    <!--    <input type="text" name="uid" /> -->
-                        
+                        <label for="image_file">Seleccione Su Portada</label>
+                        <input type="file" name="image_file" id="image_file"  onchange="seleccionarArchivo();" required /> 
                      
                         <input type="hidden" name="grabar" value="si">
-                      <input type="hidden" name="uid" value="<?php  echo $user;?>  "> 
+                   <input type="hidden" name="uid" value="<?php  echo $user;?>  "> 
                     </div>
                     <div>
 
@@ -126,10 +112,10 @@ if ( empty ( $data['user_id'] ) )
                         <div id="filedim"></div>
                     </div>
 
-                    <div id="error">Hay que seleccionar los archivos válidos, ¡s&oacute;lo una imagen!</div>
-                    <div id="error2">Se produjo un error al cargar el archivo.</div>
-                    <div id="abort">La subida ha sido cancelada por el usuario o el navegador ha terminado la conexi&oacute;n.</div>
-                    <div id="warnsize">Su archivo es muy grande. Por favor, selecciona un archivo m&aacute;s pequeño.</div>
+                    <div id="error">Hay que seleccionar los archivos válidos, solo imagen!</div>
+                    <div id="error2">Se produjo un error al cargar el archivo</div>
+                    <div id="abort">La subida ha sido cancelada por el usuario o el navegador ha terminado la conexión</div>
+                    <div id="warnsize">Su archivo es muy grande. No lo podemos aceptar. Por favor, seleccione un archivo más pequeño</div>
                     
                    
                         <div>
@@ -146,7 +132,7 @@ if ( empty ( $data['user_id'] ) )
                 
                         </div>
                
-                 <a href="#x" class="overlay" id="bases"></a>
+            <a href="#x" class="overlay" id="bases"></a>
 
                  <div class="popup">
                      
@@ -165,25 +151,31 @@ if ( empty ( $data['user_id'] ) )
                      <p>Tempor nostrum disputationi in has, ferri verterem mea ei.
                          Eripuit adolescens reprehendunt at sed.
                          Utroque torquatos interesset nam no, pro cu graece volumus deleniti.
-                         Pro agam aeque causae eu, solum exerci consequat cu sea. Ea menandri assentior duo.</p>
+                         Pro agam aeque causae eu, solum exerci consequat cu sea. Ea menandri assentior duo.
+                         Tempor nostrum disputationi in has, ferri verterem mea ei.
+                         Eripuit adolescens reprehendunt at sed.
+                         Utroque torquatos interesset nam no, pro cu graece volumus deleniti.
+                         ausae eu, solum exerci consequat cu sea. Ea menandri assentior duo.
+                        
+                     </p>
                      <br>
-                     <a href="#login_form" class="boton">Aceptar</a>
-                   <a class="close" href="#close"></a>  
+                     <ul>
+                           
+                    <li> <a href="#login_form" class="boton">Aceptar</a></li>
+                     <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/cargar.php';" class="boton">Rechazar</a>
+                     </ul>      
+                           
+                   <a class="close" href="#close"></a> 
                  </div>
-                        
-                        
-                        
-                        
-                        
-                   
-                    
+                
 		</article>
-	</div>
 	
-        
-        
         </section>
-             
+                            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a>
+                            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> 
+                           <li><a href="#bases" class="boton"   >Seleccionar...</a></li>
+                           
+                       </ul>
         </section>
     </body>
 <?php
