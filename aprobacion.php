@@ -14,7 +14,7 @@ require_once (dirname(__FILE__).'/util/funciones.php');
     array(
     'appId'  => '153053701464197',
     'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
-    )
+    ) 
 ); 
 
 /**
@@ -24,14 +24,14 @@ require_once (dirname(__FILE__).'/util/funciones.php');
 * @return string the UID if available.
 */
 
-$user = $facebook->getUser();
+$user = $facebook->getUser(); 
 
     $tra= new Trabajo;
-    $mostrar_transito=$tra->mostrar_transito();
+    $mostrar_transito=$tra->mostrarTransito();
     if(isset($_POST["grabar"]) and $_POST["grabar"]=="si")
         {
-    // print_r($_POST);
-        $tra->aprobar_imagenes();
+    
+        $tra->aprobarImagenes();
     exit;
     }  
 ?> 
@@ -41,7 +41,6 @@ $user = $facebook->getUser();
         <meta charset="utf-8"/>
         <title>..::Rumbo | Aprobar..::</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css"/>
-        <script src="js/validacion.js" type="text/javascript"></script>
         
     </head>
     <body>
@@ -84,7 +83,9 @@ if ( empty ( $data['user_id'] ) )
                                     <?php  $autor = $facebook->api('/'.$mostrar_transito[$i]["uid"]); ?>
                                      <h3> Por:<?php  echo $autor["name"];?></h3>
                                 </div>
-                                <img src="portadas/<?php echo $mostrar_transito[$i]["nombre"]; ?>" />
+                          
+                                
+                              <img src="portadas/<?php echo $mostrar_transito[$i]["nombre"]; ?>" /> 
                                 <div id="social">
                                      <ul>
                                          <li>
@@ -105,14 +106,14 @@ if ( empty ( $data['user_id'] ) )
                                </li> 
                                <?php
 
-                                } 
+                            } 
 
                                 ?>
                                
                                </ul>
         
         </section>
-<?php } ?>        
+<?php  } ?>        
     </body>
 
     
