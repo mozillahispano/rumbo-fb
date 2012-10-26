@@ -7,6 +7,9 @@
 padding:0;
 }
 
+/*Tipografia====================================================================
+================================================================================*/
+
 @font-face{
     font-family:OpenSans-ExtraBoldItalic;
     src: url("../css/font/OpenSans-ExtraBoldItalic.ttf");
@@ -32,46 +35,42 @@ padding:0;
     font-family:Santana-BlackCondensed;
     src: url("../css/font/Santana-BlackCondensed.ttf");
     
-    
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-
-
+/* General ======================================================================
+==================================================================================*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section { display: block; }
 
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
 
-ul, ol { /*margin: 1em 0; padding: 0 0 0 40px;*/ list-style:none;}
+ul, ol { list-style:none;}
 
 nav ul, nav ol { list-style: none; margin: 0; padding: 0; }
 
-
 body{
+
    background:  url("../images/bg-sky.png") repeat-x scroll 0 0 #EBEEEF;
    font-family: OpenSans-Regular;
-   font-size: 16px;
+   font-size: 12px;
   }
   
 section{
-    margin: 0 auto;
+   
     text-align: center;
-    max-width: 960px; 
+    max-width: 800px; 
     
 }
 
-
-/*============================================================================= 
+/*================================================================================== 
 Header
-==============================================================================*/
-
+===================================================================================*/
 
 section header{
 	text-align:center;
 	height:80px;
 	margin:20px auto;
 	max-width:90%
-	  
-	       
 }
 
 .gris{
@@ -90,11 +89,10 @@ section header{
 }
 
 #title{
-	font-size: 45px;
-	
+	font-size: 50px;
+	text-shadow: -5px 5px 5px rgba(0,0,0, 0.3);
 	float:left;
         text-decoration:none;
-       
 }
 
 section header nav{
@@ -105,14 +103,9 @@ section header nav{
 section header nav ol li{
 	display:inline-block;
 }
-
-
-
-
-
-/*=======================================================================
+/*=================================================================================
 Cargar
-===========================================================================*/
+===================================================================================*/
 
 
 .overlay {
@@ -202,11 +195,61 @@ Cargar
 }
 
 
-/*====================================================================
+/*================================================================================
 Boton
-======================================================================*/
+==================================================================================*/
 
+.boton-red{
+       
+display: block; 
+text-decoration: none;
+text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
+font: 14px/48px 'OpenSans-Semibold';
+vertical-align: middle;
+height: 42px; 
+width: 120px;
+background-color: #81BC2E; 
+text-align: center; 
+color: #fff;
+border-bottom: none;
+-webkit-border-radius: 0.25em;
+-moz-border-radius: 0.25em;
+border-radius: 0.25em;
+-webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), inset 0px -2px 0px 0px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), inset 0px -2px 0px 0px rgba(0, 0, 0, 0.1);
+box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1), inset 0px -2px 0px 0px rgba(0, 0, 0, 0.1); 
 
+/* IE10 */ 
+background-image: -ms-linear-gradient(top, #81BC2E 0%, #659C28 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #EA3B28 0%, #C13832 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #81BC2E 0%, #659C28 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #81BC2E), color-stop(1, #659C28));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #81BC2E 0%, #659C28 100%);
+
+/* Proposed W3C Markup */ 
+background-image: linear-gradient(top, #EA3B28 0%, #C13832 100%);
+
+-webkit-transition-property: -moz-box-shadow, -webkit-box-shadow, box-shadow;  
+-webkit-transition-duration: 0.25s;  
+-webkit-transition-delay: 0s;
+
+-moz-transition-property: -moz-box-shadow, -webkit-box-shadow, box-shadow;  
+-moz-transition-duration: 0.25s;  
+-moz-transition-delay: 0s;
+
+transition-property: -moz-box-shadow, -webkit-box-shadow, box-shadow;  
+transition-duration: 0.25s;  
+transition-delay: 0s;
+ 
+}
                                                                                                                                                                                                         
 
 .boton{
@@ -214,10 +257,11 @@ Boton
 display: block; 
 text-decoration: none;
 text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
-font: 16px/48px 'OpenSans-Semibold';
+font: 14px/48px 'OpenSans-Semibold';
 vertical-align: middle;
 height: 42px; 
-width: 147px;
+width: 120px;
+
 background-color: #81BC2E; 
 text-align: center; 
 color: #fff;
@@ -310,6 +354,8 @@ h3{
     font-family: OpenSans-ExtraBoldItalic;
     color:#317bbd;
     font-weight: normal;
+    font-size: 16px;
+    margin: 0px 0px 10px 0px;
 }
 
 #carga{
@@ -326,17 +372,7 @@ h3{
     -webkit-box-shadow:0 45px 60px -60px #AAA;
        -moz-box-shadow:0 45px 60px -60px #AAA;
             box-shadow:0 45px 60px -60px #AAA;
-   width: 550px;
-}
-
-#carga article h3{
-    font-size: 22px;
-    margin: 0px 0px 30px 0px;
-    font-weight: normal;
-}
-
-#carga .ancho{
-    width: 350px;
+   width: 40%;
 }
 
 #contenido{
@@ -353,7 +389,7 @@ h3{
     -webkit-box-shadow:0 45px 60px -60px #AAA;
        -moz-box-shadow:0 45px 60px -60px #AAA;
             box-shadow:0 45px 60px -60px #AAA;
-   width: 295px;
+   width: 30%;
 }
 
 #carga .borde,
@@ -381,6 +417,8 @@ section ul li{
     text-align: center;  
 }
 
+
+
 article .columnas{
     
      -moz-column-count: 2;
@@ -391,26 +429,24 @@ article .columnas{
    -webkit-column-rule: 1px solid #ccf;
 }
 
-
-
-
-
-/*********************Formularios*********************/
+/*==============================================================================
+Formulario
+================================================================================*/
    
 form { margin: 0; }
 
 label { cursor: pointer;}
 
-button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; display:block; }
+button, input { 
+    font-size: 100%;
+    margin: 0; 
+    vertical-align: baseline; 
+    display:block; }
 
-button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer;  }
+input[type="submit"] { cursor: pointer;  }
 
-
-
-/* Colors for form validity */
-input:valid, textarea:valid {  }
-input:invalid, textarea:invalid { background-color: #f0dddd; }
-
+input:valid {background-color: #659C28  }
+input:invalid { background-color: #f0dddd; }
 
 #upload_form {
     float:left;
@@ -424,17 +460,14 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
     display:block;
     float:right;
     width:300px;
-
 }
 
 #upload_form > div {
 
     margin-bottom:10px;
-
 }
 
-
-input, textarea {
+input {
     border-radius:10px;
     -moz-border-radius:10px;
     -ms-border-radius:10px;
@@ -445,17 +478,6 @@ input, textarea {
     padding:5px 10px;
     margin-bottom:10px;
     width: 300px;
-}
-
-input[type=button] {
-    background: -moz-linear-gradient(#ffffff, #dfdfdf);
-    background: -ms-linear-gradient(#ffffff, #dfdfdf);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #dfdfdf));
-    background: -webkit-linear-gradient(#ffffff, #dfdfdf);
-    background: -o-linear-gradient(#ffffff, #dfdfdf);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dfdfdf')";
-    background: linear-gradient(#ffffff, #dfdfdf);
 }
 
 #image_file {
@@ -481,23 +503,13 @@ input[type=button] {
 .clear_both {
     clear:both;
 }
-
-
-
-
-
-
-
-
-
-
-/*================================================================================
-Galeria
-==================================================================================*/
+/*==============================================================================
+ Aprovacion 
+================================================================================*/
 
 
 #album{
-	
+ max-width: 800px;
        
 }
 #album li{
@@ -508,34 +520,14 @@ Galeria
         overflow: hidden;
         border-top: 1px solid rgba(255, 255, 255, 0.25);
         position: relative;
-	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2) ;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-	width: 90%;
-        -webkit-transition-duration: 0.5s;
-    -moz-transition-duration: 0.5s;
-	    -ms-transition-duration: 0.5s;
-	    -o-transition-duration: 0.5s;
-	    transition-duration: 0.5s;
+	width: 100%;
+       
 }
-
 
 #album li img{
-        width:80%;
-        height: 200px;
+        width:100%;
+        height: auto
 }
-
-#album li:hover{
-            
-	 
-	    -webkit-transform:scale(1.1);
-	    -moz-transform:scale(1.1);
-	    -ms-transform:scale(1.1);
-	    -o-transform:scale(1.1);
-	    transform:scale(1.1);
-   
-}
-
 
 #album li #detalle{
     text-align: left;
@@ -546,11 +538,8 @@ Galeria
     -webkit-border-radius:  0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
-    -webkit-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.35);
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.35);
+ 
 }
-
 #album li #social{
     text-align: center;
     background: #fff; 
@@ -558,18 +547,56 @@ Galeria
     -webkit-border-radius:  0 0 5px 5px;
     -moz-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
-    -webkit-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.35);
-    -moz-box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.35);
-    box-shadow:0 -2px 4px rgba(0, 0, 0, 0.35);
-    height: 50px;
+    height: 60px;
     
 }
 
 #album li #social ul li{
     width: 200px;
-    height: 30px;
+    height: 40px;
     vertical-align: middle;
     
 }
 
+
+/*=============================================================================
+Thumbnail
+===============================================================================*/
+
+.lb-album{
+        text-align: center;
+        max-width: 800px;
+	margin: 0 auto;
+	
+}
+.lb-album li{
+	float: left;
+	margin: 5px;
+	
+}
+.lb-album li > a,
+.lb-album li > a img{
+	display: block;
+}
+.lb-album li > a img{
+	width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        
+}
+.lb-album li > a{
+        
+	width: 155px;
+	height: 100px;
+	position: relative;
+	padding: 5px;
+	vertical-align: middle;
+	-webkit-box-shadow: 1px 1px 2px #fff, 1px 1px 2px rgba(158,111,86,0.3) inset;
+	-moz-box-shadow: 1px 1px 2px #fff, 1px 1px 2px rgba(158,111,86,0.3) inset;
+	box-shadow: 1px 1px 2px #fff, 1px 1px 2px rgba(158,111,86,0.3) inset;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px ;
+        
+}
 
