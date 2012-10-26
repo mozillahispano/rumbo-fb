@@ -1,129 +1,131 @@
 <?php
-/* Database Configuration */
+
 require_once "config/config-sample.php";
 
 class Trabajo{
     
-    private $mostar=array();
-    private $mostar_transito=array();
-    public function aprobar_imagenes(){
-        
-        $id_imagen=$_POST["id"];
-        $sql="update imagenes set estado='aprobado' where id_imagenes=$id_imagen";
-        mysql_query($sql,Conectar::con());
-         echo '<script type="text/javascript"> alert("SE HA APROBADO LA IMAGEN"); window.location="galeria.php";</script>';
-  }
     
-public function mostrar_transito(){
-        
-       $sql="select * from imagenes where estado='transito'";
-        $rep=mysql_query($sql,Conectar::con());
-        while($res=mysql_fetch_assoc($rep)){
-            
-            $this->mostar[]=$res;
-        }
-        return $this->mostar;
-        
-        
-       }
+    private $db;
+    private $mostar;
+    private $mostar_transito;
     
-public function mostrar_img(){
+    public function __construct()
+    {
+        $this->db= new PDO('mysql:host=localhost;dbname=rumbo', "root", "");
+        $this->mostar=array();
+        $this->mostar_transito=array();
         
-        $sql="select * from imagenes where estado='aprobado'";
-        $rep=mysql_query($sql,Conectar::con());
-        while($res=mysql_fetch_assoc($rep)){
-            
-            $this->mostar[]=$res;
-        }
-        return $this->mostar;
     }
     
-    
-    
-    
-public function cargar_img(){
-  // print_r($_POST);
    
-        $uid=$_POST["uid"];
+    public function aprobarImagenes()
+            {
         
-        $img=$_FILES["image_file"]["name"];
-        $tempimg=$_FILES["image_file"]["tmp_name"];
-        $tamanoimg=$_FILES["image_file"]["size"];
-        $tipoimg=$_FILES["image_file"]["type"];
-     //  echo "$uid"."$img"."$tempimg"."$tamanoimg"."$tipoimg";
+            $id=strip_tags($_POST["id"]);
+            $sql="update imagenes set estado=? where id_imagenes=?";
+            $stmt= $this->db->prepare($sql);
+            $stmt->bindValue(1,'aprobado',PDO::PARAM_STR);
+            $stmt->bindValue(2,$id,PDO::PARAM_INT);
+            $stmt->execute();
+            $this->db=null;
+            echo '<script type="text/javascript"> alert("SE HA APROBADO LA IMAGEN"); window.location="galeria.php";</script>';
+  }
+    
+    public function mostrarTransito()
+       {
+       
+            $sql="select * from imagenes where estado='transito'";
+            foreach($this->db->query($sql) as $rows)
+            {
+                $this->mostar_transito[]=$rows;
+            }
+            return $this->mostar_transito;
+            $this->db=null;
+
+       }
+    
+    public function mostrarImg()
+        {
         
-       //Validando el tamaño del Archivo
-        $porte=$tamanoimg/1024;//tamaño en KB
+            $sql="select * from imagenes where estado='aprobado'";
+            foreach($this->db->query($sql) as $rows)
+            {
+                $this->mostrar[]=$rows;
+            }
+            return $this->mostrar;
+            $this->db=null;
         
-        if($porte > 1024){
-            
-           ?>
-	El archivo subido supera los 1024 Kilobytes
-	<br />
-	<input type="button" value="Volver" title="Volver" onclick="history.back()" />
-	<?php
         }
-    //Ahora validamos la extensión o el tipo de archivo
-if ($tipoimg=="image/png" or $tipoimg=="image/jpeg")
-{
+    
+public function cargar_img()
+        {
+  
+            $uid=$_POST["uid"];
+            $img=$_FILES["image_file"]["name"];
+            $tempimg=$_FILES["image_file"]["tmp_name"];
+            $tam=$_FILES["image_file"]["size"];
+            $tipoimg=$_FILES["image_file"]["type"];
 
-//Ahora podemos subir la imagen al servidor
-switch ($tipoimg)
-{
-	case 'image/png':
-		$ext=".png";
-	break;
-	case 'image/jpeg':
-		$ext=".jpg";
-	break;
-	
-}
+            $porte=$tam/1024;
 
-$nombre_foto=$uid;
-$nombre_foto=str_replace(" ","_",$nombre_foto);
-$nombre_foto=$nombre_foto.$ext;
-copy($tempimg,"portadas/$nombre_foto");
+            if($porte > 1024){
 
-//Ahora guardamos el archivo en una tabla de la base de datos
-$sql="insert into imagenes "
-			." values "
-			."(null,'$uid','$nombre_foto','transito');";
-			
-		mysql_query($sql,Conectar::con());
+            ?>
+            <strong>El archivo subido supera los 1024 Kilobytes</strong>
+            <br />
+            <input type="button" value="Volver" title="Volver" onclick="history.back()" />
+            <?php
+            }
+
+            if ($tipoimg=="image/png" or $tipoimg=="image/jpeg")
+            {
+
+                switch ($tipoimg)
+                {
+                        case 'image/png':
+                                $ext=".png";
+                        break;
+                        case 'image/jpeg':
+                                $ext=".jpg";
+                        break;
+
+                }
+
+                $nom=$uid;
+                $nom=str_replace(" ","_",$nom);
+                $nom=$nom.$ext;
+                copy($tempimg,"portadas/$nom");
+
+                require_once("util/resize-class.php");
+                $resizeObj = new resize("portadas/$nom");
+                $resizeObj -> resizeImage(150, 100, 0);
+                $resizeObj -> saveImage("portadas/thumbnail/$nom", 100);
+
+                $sql="insert into imagenes "
+                                        ." values "
+                                        ."(null,?,?,?);";
+                $stmt= $this->db->prepare($sql);
+                $stmt->bindValue(1,$uid,PDO::PARAM_INT);
+                $stmt->bindValue(2,$nom,PDO::PARAM_STR);
+                $stmt->bindValue(3,'transito',PDO::PARAM_STR);
+                $stmt->execute();
+                $this->db=null;
                 header('location: gracias.php');
-}else
-{
-	?>
-	el archivo subido solo puede ser JPG o PNG
-	<br />
-	<input type="button" value="Volver" title="Volver" onclick="history.back()" />
-	<?php
-}
+
+            }else
+            {
+            ?>
+                <strong>El archivo subido solo puede ser JPG o PNG</strong>
+                <br />
+                <input type="button" value="Volver" title="Volver" onclick="history.back()" />
+            <?php
+        }
 
  
     }       
-   
-    private function obtiene_numero_foto($uid)
-	{
-		$query="select uid from imagenes where uid='".$uid."'";
-		$respuesta=mysql_query($query,Conectar::con());
-		if (mysql_num_rows($respuesta)==0)
-		{	
-			$num=1;
-		}else
-		{
-			$num=mysql_num_rows($respuesta)+1;
-		}
-			return $num;
-	}
-        
-     
-    
-    
-    
-    
-    
+ 
 }
 
 ?>
+
 
