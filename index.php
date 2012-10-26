@@ -1,14 +1,18 @@
 <?php
 
-if (!file_exists(dirname(__FILE__).'config/config.inc.php'))
-{
-    die('Config.inc.php does not exist. Configure and rename \config\'config-sample.inc.php'); 
-else 
-    require_once (dirname(__FILE__).'config/config.inc.php');
-}
+/* Facebook API */
+require_once(dirname(__FILE__).'/config/facebook.php');
+
+/* Define your Facebook appID and secret key */ 
+ $facebook = new Facebook (
+    array(
+    'appId'  => '153053701464197',
+    'secret' => '9faf86161ca03fd7a3def4c105a2c3c1',
+    )
+);
 
 
-$user = $facebook->getUser(); 
+$user = $facebook->getUser();
  ?> 
 
 <!DOCTYPE HTML>
@@ -32,7 +36,7 @@ $user = $facebook->getUser();
         if (empty ($data['user_id'])) 
             {
                 echo "<script language=javascript>window.open('$urlAuth', '_parent', '')</script>";
-        }               
+        }             
     ?>  
 
     <!-- Header -->
@@ -41,11 +45,16 @@ $user = $facebook->getUser();
   
     </header>
     <!-- Contenido -->
-    <section id="contenido">    
+    <section id="contenido">   
+        
+        
+        
+        
+        
         <article class="borde">
             <h3>¡Hola Amigos!</h3>
-             <p>¡Hola! Soy Rumbo y me gustaría que hicieses un viaje conmigo. <p>
-             <p>Quiero celebrar con todos ustedes los 200.000 fans de nuestra p&aacute;gina en Facebook.</p>  
+             <p>¡Hola! Soy Rumbo y me gustaría que hicieses un viaje conmigo. 
+           <p> Quiero celebrar con ustedes los 200.000 fans de nuestra pagina en Facebook.</p>  
        </article>
     
     
@@ -56,18 +65,15 @@ $user = $facebook->getUser();
         
     	<article class="borde">
             <h3>Participar tiene premios</h3>
-             <p>An&iacute;mate y participa en nuestro concurso.</p>
-             <p>Env&iacute;a tus diseños y, además de que los usen miles de personas, podrás conseguir una camiseta oficial de Firefox.</p>
+             <p>Anímate y participa en nuestro concurso, envía tu diseño y, además de que lo usen miles de personas, podrás conseguir una camiseta oficial de Firefox</p>
        </article>
     </section>    
         <ul>
-         <!--     <li><a href="cargar.php" class="boton" >Participar</a></li>
-              <li><a href="galeria.php" class="boton">Galeria</a> </li>
-              <li><a href="aprobacion.php" class="boton" >Aprobar</a> </li> -->
              
-            <li>   <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/cargar.php';" class="boton">Participar</a>  </li>
-          <li> <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a> </li>
-            <li> <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> </li>
+             
+       <li>  <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/cargar.php';" class="boton">Participar</a> </li>
+         <li> <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a></li>
+         <li>  <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a></li> 
                 
         </ul>
 
