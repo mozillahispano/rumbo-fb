@@ -1,4 +1,4 @@
-<?php 
+<<?php 
  /* Database Configuration */
 require_once (dirname(__FILE__).'/config/config-sample.php');
 
@@ -33,7 +33,7 @@ $user = $facebook->getUser();
         <meta charset="utf-8"/>
         <title>..::Rumbo | Gracias ..::</title>
         <link rel="stylesheet" href="css/estilos.css" type="text/css"/>
-        <link href='http://fonts.googleapis.com/css?family=Lemon' rel="stylesheet" />
+        
     </head>
     <body>
     <section>
@@ -52,7 +52,7 @@ if ( empty ( $data['user_id'] ) )
   
  echo "<script language=javascript>window.open('$urlAuth', '_parent', '')</script>";
 }else
-{ 
+{  
 ?>
       
         <header>
@@ -67,11 +67,13 @@ if ( empty ( $data['user_id'] ) )
                     
 				
                                  <h3><strong>¡Gracias por participar!</strong></h3>
-                                <p>Estamos revisando tus diseños. En breve podr&aacute;s verlos publicados en una galer&iacute;a especial que hemos preparado.</p><p>Los diseños m&aacute;s votados ser&aacute;n los que podr&aacute;n optar a ganar el concurso. ¡Suerte!</p>
-                
+                                <p>Estamos revisando tu diseño. En breve podrás verlo publicado en una galería especial que hemos preparado. Los diseños más votados por los participantes serán los que podrán optar a ganar la camiseta. ¡Suerte!</p>
+                                <p>Este concurso está hecho por la Comunidad de voluntarios de Mozilla Hispano</p>
+                                <p>¿Quieres Conocernos? Únete y colabora con nosotros<p>
                                 <ul>
-                                  <!--  <li><a href="galeria.php" class="boton">Ir a Galeria</a></li> -->
-                                     <li><a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Ir a Galeria</a></li>
+                                    
+                                    <li><a href="https://www.mozilla-hispano.org/documentacion/Colabora" target="_blank" class="boton">Colabora</a></li>
+                                    <li><a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a></li> 
                      
                                 </ul>         
                                 
