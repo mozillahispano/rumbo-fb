@@ -58,7 +58,7 @@ body{
 section{
    
   text-align: center; 
-    max-width: 750px; 
+    max-width: 700px; 
     
 }
 
@@ -130,7 +130,7 @@ Cargar
     opacity: 1;
 }
 .popup {
-    width: 740px;
+    width: 700px;
     background-color: #fff;
     border: 3px solid #fff;
     display: inline-block;
@@ -213,7 +213,7 @@ text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
 font: 14px/48px 'OpenSans-Semibold';
 vertical-align: middle;
 height: 42px; 
-width: 120px;
+width: 100px;
 background-color: #81BC2E; 
 text-align: center; 
 color: #fff;
@@ -266,7 +266,7 @@ text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
 font: 14px/48px 'OpenSans-Semibold';
 vertical-align: middle;
 height: 42px; 
-width: 120px;
+width: 100px;
 
 background-color: #81BC2E; 
 text-align: center; 
@@ -605,7 +605,5 @@ Thumbnail
 	border-radius: 4px ;
         
 }
-
-
 
 
