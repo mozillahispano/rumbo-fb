@@ -83,7 +83,7 @@ if ( empty ( $data['user_id'] ) )
                         
                         <div class="columnas">  
                         
-                        <img src="images/carga.png" width="150px" height="150px" /><br></br>
+                        <img src="images/carga.png" alt="carga" /><br></br>
                         <p><b>Formato:</b> JPG  o PNG</p>
                        <p><b>Medidas:</b> 851px * 315px</p>
                         <p><b>Tamaño Máximo:</b>1000 kb</p>
@@ -91,7 +91,7 @@ if ( empty ( $data['user_id'] ) )
                  
                         <a href="#x" class="overlay" id="login_form"></a>
 
-                        <div class="popup">
+                        <div class="popup alto">
                      
                 <form id="upload_form" enctype="multipart/form-data" method="post" action="procesa_carga.php">
                     <div>
