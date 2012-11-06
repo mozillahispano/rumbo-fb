@@ -60,7 +60,7 @@ $user = $facebook->getUser();
     
     	<article>
     	   
-            <img src="images/rumbo.png" width="250px" height="250px" />
+            <img src="images/rumbo.png" alt="rumbo" />
         </article>
         
     	<article class="borde">
