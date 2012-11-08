@@ -162,7 +162,7 @@ if ( empty ( $data['user_id'] ) )
                      <ul>
                            
                     <li> <a href="#login_form" class="boton">Aceptar</a></li>
-                     <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/cargar.php';" class="boton">Rechazar</a>
+                     <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/cargar.php';" class="boton-red">Rechazar</a>
                      </ul>      
                            
                    <a class="close" href="#close"></a> 
@@ -171,6 +171,7 @@ if ( empty ( $data['user_id'] ) )
 		</article>
 	
         </section>
+<ul>
                             <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a>
                             <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> 
                            <li><a href="#bases" class="boton"   >Seleccionar...</a></li>
