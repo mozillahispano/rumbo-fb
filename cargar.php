@@ -171,9 +171,9 @@ if ( empty ( $data['user_id'] ) )
 		</article>
 	
         </section>
-<ul>
-                            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a>
-                            <a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> 
+                        <ul>
+                            <li><a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/galeria.php';" class="boton">Galeria</a></li>
+                            <li><a href="javascript:void(0);" onClick="top.location='https://apps.facebook.com/demorumbo/aprobacion.php';" class="boton">Aprobar</a> </li>
                            <li><a href="#bases" class="boton"   >Seleccionar...</a></li>
                            
                        </ul>
