@@ -58,36 +58,55 @@ if ( empty ( $data['user_id'] ) )
 		<?php include 'cabecera.php'; ?>
 	</header>
 	<section id="carga">
-		   <article class="borde">
+		      <article >
                        
                        
-                       <h3>Diseña una Portada</h3>
+                       <h3>Envianos tus iseños</h3>
                        <p>Queremos que seas creativo y utilices tu
                        imaginación para diseñar una imagen 
                        para que sean nuestra foto de portada</p>
-                       
-                       <hr>
-                       <h3>Tem&aacute;tica</h3>
-                       <p>Puedes elegir el producto de Mozilla preferido
-                       (Firefox, Thunderbird), algunos de los personajes de
-                       Firefox o ¡El&iacute;geme a mi! tienes libertad creativa, solo 
-                       tiene que ser un diseño que este relacionado con nosotros de 
-                       alguna manera</p>
-                       
+                       <h3>Formato</h3>
+                       <p>Medida de portada: 850 x 315px. - Peso: Máx: 300kb. - Formato: PNG/JPG</p>
 		</article>
+       
+        <section id="caja">
+		<article class="borde">
+                  <p>Img 1</p>    
+                         
                        
-		<article>
+                </article>
+            
+                <img src="images/flecha.png" alt="Flecha" />
+            
+                <article class="borde">
                     
-				
-                       <h3>Selecciona  tu Portada</h3>
-                        
-                        <div class="columnas">  
-                        
-                        <img src="images/carga.png" alt="carga" /><br></br>
-                        <p><b>Formato:</b> JPG  o PNG</p>
-                       <p><b>Medidas:</b> 851px * 315px</p>
-                        <p><b>Tamaño Máximo:</b>1000 kb</p>
-                        </div>
+                    <p>Img 2</p>         
+                       
+                         
+                       
+                </article>
+            
+                <img src="images/flecha.png" alt="Flecha" />
+            
+                <article class="borde">
+                    
+                    <p>Img 3</p>         
+                       
+                         
+                       
+                </article> 
+        </section>
+         <section id="texto">
+		<article>
+                    Elige tu producto favorito    
+                </article>
+                <article>
+                    Crea un fondo que muestre toda tu creatividad         
+                </article>
+                <article>
+                    Piensa en una frase que defina tu amor por tu producto favorito         
+                </article> 
+        </section>
                  
                         <a href="#x" class="overlay" id="login_form"></a>
 
