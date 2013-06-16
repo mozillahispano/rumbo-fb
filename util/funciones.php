@@ -11,7 +11,7 @@ class Trabajo{
     
     public function __construct()
     {
-        $this->db= new PDO('mysql:host=localhost;dbname=rumbo', "root", "");
+        $this->db = Conectar::con_pdo();
         $this->mostar=array();
         $this->mostar_transito=array();
         
