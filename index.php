@@ -28,7 +28,7 @@ $user = $facebook->getUser();
     <?php
         /* Request for user permissions */
       $urlAuth  =  "http://www.facebook.com/dialog/oauth?client_id=153053701464197&redirect_uri=http://apps.facebook.com/demorumbo/&scope=read_stream,user_status,publish_stream,email";
-        $signed_request = $_REQUEST['signed_request']; 
+        $signed_request = isset($_REQUEST['signed_request']) ? $_REQUEST['signed_request'] : '.'; 
 
         list($encoded_sig, $payload) = explode('.', $signed_request, 2); 
         $data = json_decode(base64_decode(strtr($payload, '-_', '+/')), true);
